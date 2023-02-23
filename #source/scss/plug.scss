@@ -1,0 +1,38 @@
+.plug {
+	@include adaptiv-value('margin-top', 150, 100, 1);
+	@include adaptiv-value('margin-bottom', 70, 50, 1);
+
+	&__wrapper {
+		text-align: center;
+	}
+
+	&__body {
+		@include adaptiv-value('margin-bottom', 60, 40, 1);
+	}
+
+	&__main {}
+
+	&__title {
+		font-weight: 700;
+		@include adaptiv-value('font-size', 28, 20, 1);
+		@include adaptiv-value('letter-spacing', 2, 1, 1);
+
+		& span {
+			@include adaptiv-value('padding-top', 9, 9, 1);
+			@include adaptiv-value('line-height', 32, 24, 1);
+			@include adaptiv-value('letter-spacing', 1, 0, 1);
+			font-weight: 600;
+			display: block;
+
+			&:last-child {
+				font-weight: 500;
+			}
+		}
+	}
+
+	&__image {
+		@include adaptiv-value('padding-bottom', 300, 150, 1);
+		@include adaptiv-value('max-width', 300, 150, 1);
+		margin: 0 auto;
+	}
+}

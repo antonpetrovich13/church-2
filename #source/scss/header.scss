@@ -1,0 +1,286 @@
+.header {
+	position: fixed;
+	z-index: 4;
+	width: 100%;
+	transition: all 2s ease 0s;
+	opacity: 0;
+
+	&._animation {
+		opacity: 1;
+	}
+
+	&_noanimation {
+		opacity: 1;
+	}
+
+	&__wrapper {
+		padding: 0 50px;
+		position: relative;
+		height: 80px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		z-index: 1;
+		transition: all 0.8s ease 0s;
+
+		&:before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			transition: all 0.4s ease 0s;
+		}
+
+		&_bg {
+			background-color: #242321;
+		}
+	}
+
+	&__wrapper._active {
+		&:before {
+			background-color: #242321;
+		}
+	}
+
+	&__logo {
+		position: relative;
+		max-width: 340px;
+		font-size: 20px;
+		line-height: 22px;
+		color: #ebe5e5;
+	}
+
+	&__burger {
+		display: none;
+		visibility: hidden;
+	}
+
+	&__menu {
+		display: flex;
+		align-items: center;
+
+		& li {
+			white-space: nowrap;
+			margin: 0px 16px;
+
+			&:first-child {
+				margin: 0px 16px 0px 0px;
+			}
+
+			&:last-child {
+				margin: 0px 0px 0px 16px;
+			}
+		}
+	}
+
+	&__link {
+		color: #fffefe;
+		position: relative;
+		font-size: 19px;
+
+		&:after {
+			content: "";
+			position: absolute;
+			width: 0%;
+			height: 0.5px;
+			bottom: -5px;
+			left: 0;
+			background-color: #fffefe;
+			transition: all 0.4s ease 0s;
+		}
+
+		&:hover:after {
+			width: 100%;
+		}
+	}
+
+	@media (max-width: 1440px) {
+		&__logo {
+			font-size: 17px;
+		}
+
+		&__menu {
+			& li {
+				margin: 0px 16px;
+
+				&:first-child {
+					margin: 0px 16px 0px 0px;
+				}
+
+				&:last-child {
+					margin: 0px 0px 0px 16px;
+				}
+			}
+		}
+
+		&__link {
+			font-size: 17px;
+		}
+	}
+
+	@media (max-width: 1200px) {
+		&__wrapper {
+			padding: 0 30px;
+		}
+
+		&__logo {
+			font-size: 15px;
+			line-height: 20px;
+			max-width: 300px;
+		}
+
+		&__menu {
+			& li {
+				margin: 0px 16px;
+			}
+		}
+
+		&__link {
+			font-size: 15px;
+		}
+	}
+
+	@media (max-width: 970px) {
+		&__menu {
+			& li {
+				margin: 0px 8px;
+
+				&:first-child {
+					margin: 0px 8px 0px 0px;
+				}
+
+				&:last-child {
+					margin: 0px 0px 0px 8px;
+				}
+			}
+		}
+	}
+
+	@media (max-width: 900px) {
+		&__wrapper {
+			padding: 0px 30px;
+
+			&:before {
+				content: "";
+				z-index: 3;
+			}
+		}
+
+		&__logo {
+			z-index: 3;
+		}
+
+		&__burger {
+			display: block;
+			visibility: visible;
+			width: 30px;
+			height: 30px;
+			position: relative;
+			z-index: 3;
+
+			&:before {
+				content: "";
+				position: absolute;
+				top: 8px;
+				left: 0;
+				width: 100%;
+				height: 1px;
+				background-color: #fffefe;
+				transition: all 0.3s ease 0s;
+			}
+
+			& span {
+				position: absolute;
+				top: 16px;
+				left: 0;
+				width: 100%;
+				height: 1px;
+				background-color: #fffefe;
+				transition: all 0.3s ease 0s;
+			}
+
+			&:after {
+				content: "";
+				position: absolute;
+				top: 24px;
+				left: 0;
+				width: 100%;
+				height: 1px;
+				background-color: #fffefe;
+				transition: all 0.3s ease 0s;
+			}
+		}
+
+		&__burger._active:before {
+			transform: rotate(45deg);
+			top: 16px;
+		}
+
+		&__burger._active span {
+			transform: scale(0);
+		}
+
+		&__burger._active:after {
+			transform: rotate(-45deg);
+			top: 16px;
+		}
+
+		&__menu {
+			overflow: auto;
+			position: fixed;
+			z-index: 2;
+			top: -100%;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgb(27, 25, 25);
+			flex-direction: column;
+			justify-content: center;
+			transition: all 0.4s ease 0s;
+
+			& li {
+				margin: 30px 0px 0px 0px;
+
+				&:first-child {
+					margin: 0px 0px 0px 0px;
+				}
+
+				&:last-child {
+					margin: 30px 0px 0px 0px;
+				}
+			}
+		}
+
+		&__menu._active {
+			top: 0;
+		}
+
+		&__link {
+			font-size: 22px;
+
+			&:after {
+				display: none;
+				opacity: 0;
+			}
+
+			&:hover:after {
+				display: none;
+			}
+		}
+	}
+
+	@media (max-width: 500px) {
+		&__wrapper {
+			height: 60px;
+			padding: 0px 15px;
+		}
+
+		&__logo {
+			font-size: 13px;
+			max-width: 250px;
+			line-height: 19px;
+		}
+	}
+}
